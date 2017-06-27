@@ -1,0 +1,5 @@
+F:\文件\OneDrive\Documents\Panda.AsyncJob\Panda.AsyncJob\bin\Release\Panda.AsyncJob.dll
+F:\文件\OneDrive\Documents\Panda.AsyncJob\Panda.AsyncJob\bin\Release\Panda.AsyncJob.pdb
+F:\文件\OneDrive\Documents\Panda.AsyncJob\Panda.AsyncJob\obj\Release\Panda.AsyncJob.dll
+F:\文件\OneDrive\Documents\Panda.AsyncJob\Panda.AsyncJob\obj\Release\Panda.AsyncJob.pdb
+F:\文件\OneDrive\Documents\Panda.AsyncJob\Panda.AsyncJob\bin\Release\Panda.AsyncJob.XML

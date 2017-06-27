@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Panda.AsyncJob</name>
+    </assembly>
+    <members>
+        <member name="T:PandaAsync.AsyncJob">
+            <summary>
+            处理多层次异步操作的类
+            </summary>
+        </member>
+        <member name="P:PandaAsync.AsyncJob.Last">
+            <summary>
+            上一节点
+            </summary>
+        </member>
+        <member name="P:PandaAsync.AsyncJob.Next">
+            <summary>
+            下一节点
+            </summary>
+        </member>
+        <member name="P:PandaAsync.AsyncJob.OutBufferLength">
+            <summary>
+            输出缓冲区长度
+            </summary>
+        </member>
+        <member name="P:PandaAsync.AsyncJob.InBufferLength">
+            <summary>
+            输入缓冲区长度
+            </summary>
+        </member>
+        <member name="P:PandaAsync.AsyncJob.IsCompleted">
+            <summary>
+            该节点（包括所有下层）事件是否已经全部完成
+            </summary>
+        </member>
+        <member name="M:PandaAsync.AsyncJob.EndInput">
+            <summary>
+            指示对异步工作的输入结束，该异步工作将在处理完剩余的输出后销毁。
+            </summary>
+        </member>
+        <member name="M:PandaAsync.AsyncJob.#ctor">
+            <summary>
+            生成多层次异步操作的实例
+            </summary>
+        </member>
+        <member name="M:PandaAsync.AsyncJob.addChild(PandaAsync.AsyncJob)">
+            <summary>
+            添加子节点，所有的子节点以环形结构相连
+            </summary>
+            <param name="childJob"></param>
+        </member>
+        <member name="M:PandaAsync.AsyncJob.addChild">
+            <summary>
+            添加子节点，所有的子节点以环形结构相连
+            </summary>
+        </member>
+        <member name="M:PandaAsync.AsyncJob.addChilds(System.Int32)">
+            <summary>
+            添加多个子节点，所有的子节点以环形结构相连
+            </summary>
+            <param name="childNum"></param>
+        </member>
+        <member name="M:PandaAsync.AsyncJob.SendCallBack(System.Action)">
+            <summary>
+            发送回调信号，回调信号将进入缓冲区
+            </summary>
+            <param name="action"></param>
+        </member>
+        <member name="M:PandaAsync.AsyncJob.PopCallBack">
+            <summary>
+            从缓冲区中弹出回调函数，如缓冲区为空，则返回null
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PandaAsync.AsyncJob.Start">
+            <summary>
+            启动事件（包括所有下层事件）
+            </summary>
+        </member>
+        <member name="T:PandaAsync.Circle`1">
+            <summary>
+            表示环形结构的类
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:PandaAsync.Circle`1.Head">
+            <summary>
+            头结点
+            </summary>
+        </member>
+        <member name="P:PandaAsync.Circle`1.Count">
+            <summary>
+            环中所有元素的数量
+            </summary>
+        </member>
+        <member name="P:PandaAsync.Circle`1.Current">
+            <summary>
+            当前结点
+            </summary>
+        </member>
+        <member name="M:PandaAsync.Circle`1.Next">
+            <summary>
+            下一结点
+            </summary>
+        </member>
+        <member name="M:PandaAsync.Circle`1.#ctor">
+            <summary>
+            表示环形结构的类
+            </summary>
+        </member>
+        <member name="M:PandaAsync.Circle`1.Add(`0)">
+            <summary>
+            在环尾添加新结点
+            </summary>
+            <param name="node"></param>
+        </member>
+        <member name="M:PandaAsync.Circle`1.Remove(`0)">
+            <summary>
+            移除结点
+            </summary>
+            <param name="node"></param>
+        </member>
+        <member name="M:PandaAsync.Circle`1.GetEnumerator">
+            <summary>
+            获取迭代器
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:PandaAsync.INode">
+            <summary>
+            环形结构的结点
+            </summary>
+        </member>
+        <member name="P:PandaAsync.INode.Last">
+            <summary>
+            上一结点
+            </summary>
+        </member>
+        <member name="P:PandaAsync.INode.Next">
+            <summary>
+            下一结点
+            </summary>
+        </member>
+    </members>
+</doc>
