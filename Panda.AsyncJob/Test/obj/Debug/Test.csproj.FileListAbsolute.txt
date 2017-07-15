@@ -5,3 +5,10 @@ F:\文件\OneDrive\Documents\Panda.AsyncJob\Test\bin\Debug\Panda.AsyncJob.pdb
 F:\文件\OneDrive\Documents\Panda.AsyncJob\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
 F:\文件\OneDrive\Documents\Panda.AsyncJob\Test\obj\Debug\Test.exe
 F:\文件\OneDrive\Documents\Panda.AsyncJob\Test\obj\Debug\Test.pdb
+F:\projects\Panda.AsyncJob\Panda.AsyncJob\Test\obj\Debug\Test.exe
+F:\projects\Panda.AsyncJob\Panda.AsyncJob\Test\obj\Debug\Test.pdb
+F:\projects\Panda.AsyncJob\Panda.AsyncJob\Test\bin\Debug\Test.exe
+F:\projects\Panda.AsyncJob\Panda.AsyncJob\Test\bin\Debug\Test.pdb
+F:\projects\Panda.AsyncJob\Panda.AsyncJob\Test\bin\Debug\Panda.AsyncJob.dll
+F:\projects\Panda.AsyncJob\Panda.AsyncJob\Test\bin\Debug\Panda.AsyncJob.pdb
+F:\projects\Panda.AsyncJob\Panda.AsyncJob\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Concurrent;
 using System.Collections;
+using System.Threading;
 
 namespace PandaAsync
 {   
@@ -20,6 +21,8 @@ namespace PandaAsync
         private bool _inputEnd;
         private AsyncJob _currentInputChild;
         private AsyncJob _currentOutputChild;
+        private bool _inTaskCompleted;
+        private bool _outTaskCompleted;
 
         /// <summary>
         /// 上一节点
@@ -48,20 +51,7 @@ namespace PandaAsync
         {
             get
             {
-                if(this._inTask == null)
-                {
-                    return false;
-                }
-                if(this._inTask != null && this._inTask.Status != TaskStatus.Canceled && this._inTask.Status != TaskStatus.Faulted 
-                    && this._inTask.Status != TaskStatus.RanToCompletion)
-                {
-                    return false;
-                }
-                if (this._circle != null && this._circle.Count > 0)
-                {
-                    return false;
-                }
-                return this._outputQueue.Count == 0;
+                return this._inTaskCompleted && this._outTaskCompleted && this._outputQueue.Count == 0;
             }
         }
 
@@ -75,7 +65,7 @@ namespace PandaAsync
 
         public void In(Action<AsyncJob> act)
         {
-            while(_inputQueue.Count >= InBufferLength) { };
+            while(_inputQueue.Count >= InBufferLength) { Thread.Sleep(20); }
             this._inputQueue.Enqueue(act);
         }
 
@@ -86,7 +76,11 @@ namespace PandaAsync
                 Action act = this.PopCallBack();
                 if(act != null)
                 {
-                    act.Invoke();
+                    act();
+                }
+                else
+                {
+                    Thread.Sleep(20);
                 }
             }
             //this.Dispose();
@@ -119,6 +113,8 @@ namespace PandaAsync
             this.Last = null;
             this.Next = null;
             this._inputEnd = false;
+            this._inTaskCompleted = false;
+            this._outTaskCompleted = false;
             this._currentInputChild = _circle.Head;
         }
 
@@ -132,6 +128,8 @@ namespace PandaAsync
             this.Last = null;
             this.Next = null;
             this._inputEnd = false;
+            this._inTaskCompleted = false;
+            this._outTaskCompleted = false;
             this._currentInputChild = _circle.Head;
             this.In(act);
         }
@@ -157,7 +155,7 @@ namespace PandaAsync
         /// 添加多个子节点，所有的子节点以环形结构相连
         /// </summary>
         /// <param name="childNum"></param>
-        public void addChilds(int childNum)
+        public void addChild(int childNum)
         {
             for(int i = 0; i < childNum; i++)
             {
@@ -204,19 +202,31 @@ namespace PandaAsync
                 {
                     if (this._inputQueue.TryDequeue(out act))
                     {
-                            act.Invoke(this);
+                        act(this);
+                    }
+                    else
+                    {
+                        Thread.Sleep(20);
                     }
                 }
-                if(this._circle.Count > 1)
+                if (this._circle.Count > 0)
                 {
                     AsyncJob a = this._circle.Head;
-                    a.EndInput();
-                    while(a.Next != this._circle.Head)
+                    a.In(j =>
+                    {
+                        j.EndInput();
+                    });
+                    while (a.Next != this._circle.Head)
                     {
                         a = a.Next as AsyncJob;
-                        a.EndInput();
+                        a.In(j =>
+                        {
+                            j.EndInput();
+                        });
                     }
                 }
+                this._inTaskCompleted = true;
+                
             });          
             _outTask = new Task(() =>
             {
@@ -237,13 +247,16 @@ namespace PandaAsync
                         if (this._currentOutputChild.IsCompleted)
                         {
                             this._circle.Remove(this._currentOutputChild);
+                            this._currentOutputChild = this._currentOutputChild.Next as AsyncJob;
                         }
                         else
                         {
+                            Thread.Sleep(20);
                             this._currentOutputChild = this._currentOutputChild.Next as AsyncJob;
                         }
                     }
                 }
+                this._outTaskCompleted = true;
             });
             _inTask.Start();
             _outTask.Start();

@@ -10,11 +10,12 @@ namespace Test
     {
         static void Main(string[] args)
         {
+            object locker = new object();
             int m = 0;
             int n = 0;
+            int k = 0;
             AsyncJob job = new AsyncJob();
-            job.addChild(new AsyncJob());
-            job.addChild(new AsyncJob());
+            job.addChild(10);
             job.Start();
             job.In((j) =>
             {
@@ -23,6 +24,10 @@ namespace Test
                     Console.WriteLine("执行主任务{0}", m++);
                     j.SendToChild((c) =>
                     {
+                        lock (locker)
+                        {
+                            Console.WriteLine("执行子任务{0}", k++);
+                        }
                         c.SendCallBack(() =>
                         {
                             Console.WriteLine("子任务回调{0}", n++);

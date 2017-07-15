@@ -1,0 +1,5 @@
+F:\projects\Panda.AsyncJob\Panda.AsyncJob\Panda.AsyncJob\bin\Debug\Panda.AsyncJob.dll
+F:\projects\Panda.AsyncJob\Panda.AsyncJob\Panda.AsyncJob\bin\Debug\Panda.AsyncJob.pdb
+F:\projects\Panda.AsyncJob\Panda.AsyncJob\Panda.AsyncJob\obj\Debug\Panda.AsyncJob.csprojResolveAssemblyReference.cache
+F:\projects\Panda.AsyncJob\Panda.AsyncJob\Panda.AsyncJob\obj\Debug\Panda.AsyncJob.dll
+F:\projects\Panda.AsyncJob\Panda.AsyncJob\Panda.AsyncJob\obj\Debug\Panda.AsyncJob.pdb
