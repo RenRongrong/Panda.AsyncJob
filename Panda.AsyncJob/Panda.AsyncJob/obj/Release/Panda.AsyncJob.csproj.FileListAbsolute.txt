@@ -3,3 +3,9 @@ F:\文件\OneDrive\Documents\Panda.AsyncJob\Panda.AsyncJob\bin\Release\Panda.Asy
 F:\文件\OneDrive\Documents\Panda.AsyncJob\Panda.AsyncJob\obj\Release\Panda.AsyncJob.dll
 F:\文件\OneDrive\Documents\Panda.AsyncJob\Panda.AsyncJob\obj\Release\Panda.AsyncJob.pdb
 F:\文件\OneDrive\Documents\Panda.AsyncJob\Panda.AsyncJob\bin\Release\Panda.AsyncJob.XML
+F:\projects\Panda.AsyncJob\Panda.AsyncJob\Panda.AsyncJob\bin\Release\Panda.AsyncJob.XML
+F:\projects\Panda.AsyncJob\Panda.AsyncJob\Panda.AsyncJob\bin\Release\Panda.AsyncJob.dll
+F:\projects\Panda.AsyncJob\Panda.AsyncJob\Panda.AsyncJob\bin\Release\Panda.AsyncJob.pdb
+F:\projects\Panda.AsyncJob\Panda.AsyncJob\Panda.AsyncJob\obj\Release\Panda.AsyncJob.csprojResolveAssemblyReference.cache
+F:\projects\Panda.AsyncJob\Panda.AsyncJob\Panda.AsyncJob\obj\Release\Panda.AsyncJob.dll
+F:\projects\Panda.AsyncJob\Panda.AsyncJob\Panda.AsyncJob\obj\Release\Panda.AsyncJob.pdb

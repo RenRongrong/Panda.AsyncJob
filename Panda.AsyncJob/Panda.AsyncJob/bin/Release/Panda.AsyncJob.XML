@@ -55,7 +55,7 @@
             添加子节点，所有的子节点以环形结构相连
             </summary>
         </member>
-        <member name="M:PandaAsync.AsyncJob.addChilds(System.Int32)">
+        <member name="M:PandaAsync.AsyncJob.addChild(System.Int32)">
             <summary>
             添加多个子节点，所有的子节点以环形结构相连
             </summary>
